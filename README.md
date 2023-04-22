@@ -4,6 +4,13 @@ Restaurant service using Django REST framework.
 
 ## Client server logic
 
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 <img width="694" alt="client-server" src="https://user-images.githubusercontent.com/86779145/233807174-c14ab08f-e158-4d87-995d-ba2378052e51.png">
 
 ## Installation
