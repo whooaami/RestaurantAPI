@@ -6,6 +6,10 @@ Restaurant service using Django REST framework.
 
 <img width="694" alt="client-server" src="https://user-images.githubusercontent.com/86779145/233807174-c14ab08f-e158-4d87-995d-ba2378052e51.png">
 
+## Database architecture 
+
+<img width="779" alt="db" src="https://user-images.githubusercontent.com/86779145/233808120-fc2feea5-d9ba-4db3-bfd3-f03a90f6c5f2.png">
+
 ## Installation
 
 1) Clone my [repository](https://github.com/whooaami/RestaurantAPI) to install project:
