@@ -4,7 +4,6 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Restaurant
-# from .permissions import IsAdminOrReadOnly
 from .serializers import RestaurantSerializer
 
 
@@ -26,8 +25,6 @@ class RestaurantList(APIView):
 
 
 class RestaurantDetail(APIView):
-
-    # permission_classes = [IsAdminOrReadOnly]
 
     def get(self, request, pk=None, format=None):
         restaurant = get_object_or_404(Restaurant.objects.all(), pk=pk)

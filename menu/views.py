@@ -1,6 +1,6 @@
 from rest_framework import status
 from datetime import date
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,7 +12,7 @@ from .permissions import IsAdminOrReadOnly
 
 class MenuList(APIView):
 
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get(self, request, format=None):
         menus = Menu.objects.all()
@@ -22,7 +22,7 @@ class MenuList(APIView):
 
 class MenuUpload(APIView):
 
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, pk=None, format=None):
         menu = get_object_or_404(Menu.objects.all(), pk=pk)
@@ -46,7 +46,7 @@ class MenuUpload(APIView):
 
 class MenuDetail(APIView):
 
-    permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, pk=None, format=None):
         menu = get_object_or_404(Menu.objects.all(), pk=pk)

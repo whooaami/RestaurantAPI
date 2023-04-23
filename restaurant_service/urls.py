@@ -15,11 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView,
-)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,16 +22,12 @@ urlpatterns = [
     path('api/v1/', include('employee.urls')),
     path('api/v1/', include('menu.urls')),
     path('api/v1/', include('vote.urls')),
-    path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/v1/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/v1/auth/', include('authentication.urls')),
 
     # new version 2
     path('api/v2/', include('restaurant.urls')),
     path('api/v2/', include('employee.urls')),
     path('api/v2/', include('menu.urls')),
     path('api/v2/', include('vote.urls')),
-    path('api/v2/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/v2/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/v2/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/v2/auth/', include('authentication.urls')),
 ]

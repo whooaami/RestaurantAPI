@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import get_object_or_404
 from .serializers import EmployeeSerializer
 from .models import Employee
@@ -10,7 +10,7 @@ from .permissions import IsAdminOrReadOnly
 
 class EmployeeList(APIView):
 
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get(self, request, format=None):
         employees = Employee.objects.all()
@@ -27,7 +27,7 @@ class EmployeeList(APIView):
 
 class EmployeeDetail(APIView):
 
-    permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, pk=None, format=None):
         employee = get_object_or_404(Employee.objects.all(), pk=pk)

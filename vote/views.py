@@ -1,12 +1,16 @@
 from rest_framework.views import APIView
 from datetime import date
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from .models import Vote
 from .serializers import VoteSerializer
 
 
 class VoteResultsAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, menu_id, format=None):
         today = date.today()
         votes = Vote.objects.filter(menu_id=menu_id, date=today)
