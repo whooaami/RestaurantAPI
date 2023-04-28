@@ -1,6 +1,4 @@
-# INFORCE PYTHON TASK
-
-Restaurant service using Django REST framework.
+# Restaurant service using Django REST framework.
 
 ## Client server logic
 
